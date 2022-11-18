@@ -3,6 +3,7 @@ package com.unisannio.gdevanno.intentexamples;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -31,4 +32,12 @@ public class FirstActivity extends AppCompatActivity {
         i.putExtra(getResources().getString(R.string.key), param);
         this.startActivity(i);
     }
+
+    public void web(View v){
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse("http://" + edit.getText().toString())):
+        this.startActivity(intent);
+    }
+
+
 }
