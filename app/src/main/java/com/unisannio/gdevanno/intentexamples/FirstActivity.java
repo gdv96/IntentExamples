@@ -2,6 +2,7 @@ package com.unisannio.gdevanno.intentexamples;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.SearchManager;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -36,6 +37,12 @@ public class FirstActivity extends AppCompatActivity {
     public void web(View v){
         Intent intent = new Intent(Intent.ACTION_VIEW);
         intent.setData(Uri.parse("http://" + edit.getText().toString())):
+        this.startActivity(intent);
+    }
+
+    public void search(View v){
+        Intent intent = new Intent(Intent.ACTION_WEB_SEARCH);
+        intent.putExtra(SearchManager.QUERY, edit.getText().toString());
         this.startActivity(intent);
     }
 
