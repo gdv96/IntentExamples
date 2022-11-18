@@ -2,7 +2,9 @@ package com.unisannio.gdevanno.intentexamples;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.EditText;
 
 public class FirstActivity extends AppCompatActivity {
@@ -15,5 +17,18 @@ public class FirstActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_first);
         edit = (EditText) findViewById(R.id.input);
+    }
+
+    public void explicit(View v){
+        Intent i = new Intent(this, SecondActivity.class);
+        int param;
+        try {
+            param = Integer.parseInt(edit.getText().toString());
+        }
+        catch (NumberFormatException nfe){
+            param = 0;
+        }
+        i.putExtra(getResources().getString(R.string.key), param);
+        this.startActivity(i);
     }
 }
