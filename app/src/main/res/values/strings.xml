@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">IntentExamples</string>
+    <string name="explicit">Explicit</string>
+    <string name="web">Open Web Page</string>
+    <string name="search">Web Search</string>
+    <string name="call">Tell. call</string>
+    <string name="custom">Custom Action</string>
+    <string name="resCall">Call for Result</string>
+    <string name="done">OK</string>
+    <string name="resultKey">result</string>
+    <string name="my_custom_action">it.unisannio.giovannidevanno.pervasive.action.di.prova</string>
 </resources>
