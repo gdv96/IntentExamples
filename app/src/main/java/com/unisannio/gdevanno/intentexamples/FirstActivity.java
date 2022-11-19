@@ -2,6 +2,7 @@ package com.unisannio.gdevanno.intentexamples;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.app.SearchManager;
 import android.content.Intent;
 import android.net.Uri;
@@ -71,5 +72,17 @@ public class FirstActivity extends AppCompatActivity {
         Intent intent = new Intent(this, FourthActivity.class);
         intent.putExtra(getResources().getString(R.string.key), edit.getText().toString());
         this.startActivityForResult(intent, rCode);
+    }
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        if (requestCode == rCode) {
+            if(resultCode == Activity.RESULT_OK){
+                edit.setText(edit.getText().toString()+" is "+data.getStringExtra(getResources().getString(R.string.resultKey)));
+            }
+            if (resultCode == Activity.RESULT_CANCELED) {
+                //Write your code if there's no result
+            }
+        }
     }
 }
