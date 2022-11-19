@@ -1,8 +1,13 @@
 package com.unisannio.gdevanno.intentexamples;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.app.Instrumentation;
 import android.app.SearchManager;
 import android.content.Intent;
 import android.net.Uri;
@@ -13,7 +18,17 @@ import android.widget.EditText;
 public class FirstActivity extends AppCompatActivity {
 
     private EditText edit;
-    private final int rCode = 1963;
+    //private final int rCode = 1963;
+    ActivityResultLauncher<Intent> startForResult = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
+        @Override
+        public void onActivityResult(ActivityResult result) {
+            if(result != null && result.getResultCode() == RESULT_OK){
+                if(result.getData() != null && result.getData().getStringExtra(FourthActivity.KEY_NAME) != null ){
+                    edit.setText(edit.getText().toString()+" is "+ result.getData().getStringExtra(getResources().getString(R.string.resultKey)));
+                }
+            }
+        }
+    });
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,10 +86,11 @@ public class FirstActivity extends AppCompatActivity {
     public void callForRes(View v){
         Intent intent = new Intent(this, FourthActivity.class);
         intent.putExtra(getResources().getString(R.string.key), edit.getText().toString());
-        this.startActivityForResult(intent, rCode);
+        //this.startActivityForResult(intent, rCode);
+        startForResult.launch(intent);
     }
 
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    /*protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
         if (requestCode == rCode) {
             if(resultCode == Activity.RESULT_OK){
@@ -84,5 +100,5 @@ public class FirstActivity extends AppCompatActivity {
                 //Write your code if there's no result
             }
         }
-    }
+    }*/
 }
