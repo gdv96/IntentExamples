@@ -67,4 +67,9 @@ public class FirstActivity extends AppCompatActivity {
         this.startActivity(intent);
     }
 
+    public void callForRes(View v){
+        Intent intent = new Intent(this, FourthActivity.class);
+        intent.putExtra(getResources().getString(R.string.key), edit.getText().toString());
+        this.startActivityForResult(intent, rCode);
+    }
 }
