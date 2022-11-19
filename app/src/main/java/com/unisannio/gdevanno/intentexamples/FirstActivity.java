@@ -67,5 +67,4 @@ public class FirstActivity extends AppCompatActivity {
         this.startActivity(intent);
     }
 
-
 }
