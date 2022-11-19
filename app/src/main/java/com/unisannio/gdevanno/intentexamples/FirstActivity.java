@@ -36,13 +36,34 @@ public class FirstActivity extends AppCompatActivity {
 
     public void web(View v){
         Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setData(Uri.parse("http://" + edit.getText().toString())):
+        intent.setData(Uri.parse("http://" + edit.getText().toString()));
         this.startActivity(intent);
     }
 
     public void search(View v){
         Intent intent = new Intent(Intent.ACTION_WEB_SEARCH);
         intent.putExtra(SearchManager.QUERY, edit.getText().toString());
+        this.startActivity(intent);
+    }
+
+    public void tellCall(View v){
+        Intent intent = new Intent(Intent.ACTION_CALL);
+        intent.setData(Uri.parse("tel" + edit.getText().toString()));
+        this.startActivity(intent);
+    }
+
+    public void custom(View v){
+        String myAction = getResources().getString(R.string.my_custom_action);
+        int param;
+
+        try {
+            param = Integer.parseInt(edit.getText().toString());
+        }
+        catch(NumberFormatException nfe){
+            param = 5;
+        }
+        Intent intent = new Intent(myAction);
+        intent.putExtra(getResources().getString(R.string.key), param);
         this.startActivity(intent);
     }
 
