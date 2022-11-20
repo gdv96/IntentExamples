@@ -11,7 +11,7 @@ public class SecondActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_second);
+        setContentView(R.layout.other_activities);
         Intent fromCaller = getIntent();
         int param = fromCaller.getIntExtra(getResources().getString(R.string.key),-1);
         if(param>-1){
