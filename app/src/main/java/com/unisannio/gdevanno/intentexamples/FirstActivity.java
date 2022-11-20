@@ -23,7 +23,7 @@ public class FirstActivity extends AppCompatActivity {
         @Override
         public void onActivityResult(ActivityResult result) {
             if(result != null && result.getResultCode() == RESULT_OK){
-                if(result.getData() != null && result.getData().getStringExtra(FourthActivity.KEY_NAME) != null ){
+                if(result.getData() != null && result.getData().getStringExtra(getResources().getString(R.string.resultKey)) != null ){
                     edit.setText(edit.getText().toString()+" is "+ result.getData().getStringExtra(getResources().getString(R.string.resultKey)));
                 }
             }
