@@ -33,7 +33,7 @@
             android:name=".ThirdActivity"
             android:exported="false">
         <intent-filter>
-            <action android:name="it.unisannio.gerardocanfora.pervasive.action.di.prova" />
+            <action android:name="it.unisannio.giovannidevanno.pervasive.action.di.prova" />
             <category android:name="android.intent.category.DEFAULT" />
         </intent-filter>
         </activity>

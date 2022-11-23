@@ -62,10 +62,11 @@ public class FirstActivity extends AppCompatActivity {
         this.startActivity(intent);
     }
 
-    public void tellCall(View v){
+    public void telCall(View v) {
         Intent intent = new Intent(Intent.ACTION_CALL);
-        intent.setData(Uri.parse("tel" + edit.getText().toString()));
+        intent.setData(Uri.parse("tel:" + edit.getText().toString()));
         this.startActivity(intent);
+
     }
 
     public void custom(View v){
